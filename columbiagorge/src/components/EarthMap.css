@@ -1,0 +1,109 @@
+/* EarthMap Split Layout Styles (Editorial) */
+.earth-map-section {
+    width: 100%;
+    background-color: var(--color-background);
+    /* Off-white */
+    border-top: 1px solid var(--color-slate);
+}
+
+.earth-map-split {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+    .earth-map-split {
+        flex-direction: row;
+        min-height: 80vh;
+    }
+}
+
+.map-info-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem;
+    background-color: transparent;
+}
+
+.map-info-content {
+    max-width: 450px;
+    width: 100%;
+}
+
+.info-eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--color-gray);
+    margin-bottom: 2rem;
+}
+
+.info-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--color-primary);
+    margin-bottom: 4rem;
+    line-height: 1.1;
+}
+
+.map-details {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 4.5rem;
+}
+
+.map-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.detail-icon {
+    color: var(--color-secondary);
+    /* Forest Green */
+    margin-top: 0.2rem;
+}
+
+.map-detail-item h3 {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-gray);
+    margin-bottom: 0.5rem;
+}
+
+.map-detail-item p {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.map-action-btn {
+    width: 100%;
+    text-align: center;
+}
+
+.map-visual-side {
+    flex: 1;
+    position: relative;
+    min-height: 50vh;
+}
+
+.google-map-iframe-split {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(100%) contrast(1.1) opacity(0.85);
+    transition: filter 0.8s ease;
+}
+
+.google-map-iframe-split:hover {
+    filter: grayscale(10%) contrast(1) opacity(1);
+}

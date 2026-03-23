@@ -1,0 +1,110 @@
+/* Experience Grid Styles */
+.experience-section {
+    background-color: var(--color-background);
+}
+
+.experience-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-gray);
+    letter-spacing: 0.05em;
+}
+
+/* Alternating Blocks - Hotel 1000 Style */
+.alternating-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.alt-block {
+    display: flex;
+    flex-direction: column;
+    min-height: 60vh;
+}
+
+@media(min-width: 1024px) {
+    .alt-block {
+        flex-direction: row;
+    }
+
+    .alt-block.alt-reverse {
+        flex-direction: row-reverse;
+    }
+}
+
+.alt-image-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.tilt-wrapper {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.alt-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.alt-block:hover .alt-image {
+    transform: scale(1.05);
+}
+
+.alt-text-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-background);
+    padding: 4rem 2rem;
+}
+
+.alt-block:nth-child(even) .alt-text-container {
+    background-color: var(--color-slate);
+}
+
+.alt-text-content {
+    max-width: 500px;
+    text-align: center;
+}
+
+.alt-title {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.alt-description {
+    font-size: 1.1rem;
+    color: var(--color-gray);
+    margin-bottom: 3rem;
+    line-height: 1.8;
+}
+
+.alt-btn {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.alt-btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}

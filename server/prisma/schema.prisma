@@ -1,0 +1,109 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Accommodation {
+  id            String    @id @default(cuid())
+  slug          String    @unique
+  name          String
+  type          String
+  description   String
+  sqft          Int?
+  maxGuests     Int
+  pricePerNight Float
+  images        String
+  amenityTags   String
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  bookings      Booking[]
+}
+
+model Service {
+  id                  String               @id @default(cuid())
+  name                String
+  category            String
+  price               Float
+  priceType           String
+  description         String
+  isActive            Boolean              @default(true)
+  sortOrder           Int                  @default(0)
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+  bookingEnhancements BookingEnhancement[]
+}
+
+model Booking {
+  id                    String               @id @default(cuid())
+  guestFirstName        String
+  guestLastName         String
+  guestEmail            String
+  guestAdults           Int
+  guestChildren         Int
+  specialRequests       String?
+  checkIn               DateTime
+  checkOut              DateTime
+  nights                Int
+  accommodationId       String
+  accommodation         Accommodation        @relation(fields: [accommodationId], references: [id])
+  roomSubtotal          Float
+  enhancementsSubtotal  Float                @default(0)
+  totalAmountCents      Int
+  status                String               @default("pending")
+  stripePaymentIntentId String?              @unique
+  stripeChargeId        String?
+  paidAt                DateTime?
+  enhancements          BookingEnhancement[]
+  createdAt             DateTime             @default(now())
+  updatedAt             DateTime             @updatedAt
+}
+
+model BookingEnhancement {
+  id            String  @id @default(cuid())
+  bookingId     String
+  booking       Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  serviceId     String
+  service       Service @relation(fields: [serviceId], references: [id])
+  priceSnapshot Float
+
+  @@unique([bookingId, serviceId])
+}
+
+model Review {
+  id          String   @id @default(cuid())
+  authorName  String
+  body        String
+  rating      Int
+  isPublished Boolean  @default(false)
+  bookingId   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}

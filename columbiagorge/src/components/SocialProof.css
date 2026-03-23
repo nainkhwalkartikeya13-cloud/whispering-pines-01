@@ -1,0 +1,63 @@
+/* Social Proof Styles */
+.social-proof-section {
+    background-color: var(--color-background);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 5rem 2rem;
+}
+
+.social-proof-label {
+    text-align: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gray);
+    margin-bottom: 3rem;
+    font-weight: 500;
+}
+
+.badges-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    opacity: 0.8;
+    filter: grayscale(100%);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.badges-container:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+@media (min-width: 768px) {
+    .badges-container {
+        flex-direction: row;
+        gap: 6rem;
+    }
+}
+
+.badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.badge-text {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-text);
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
+.badge-line {
+    width: 40px;
+    height: 2px;
+    background-color: var(--color-accent);
+}

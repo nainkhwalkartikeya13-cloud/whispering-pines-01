@@ -1,0 +1,152 @@
+/* Admin Styles */
+.admin-page {
+    background-color: var(--color-slate);
+    /* Light gray background */
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 1rem;
+}
+
+.admin-title {
+    font-size: 2.5rem;
+    color: var(--color-text);
+}
+
+.admin-add-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+}
+
+.admin-table-container {
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: #fcfcfc;
+    padding: 1rem 1.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gray);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.admin-table td {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    vertical-align: top;
+}
+
+.admin-table tr:hover td {
+    background-color: #fafafa;
+}
+
+.cell-category {
+    width: 15%;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.badge-accommodation {
+    background-color: rgba(68, 125, 135, 0.1);
+    color: var(--color-primary);
+}
+
+.badge-add-on {
+    background-color: rgba(26, 26, 26, 0.05);
+    color: var(--color-text);
+}
+
+.badge-merchandise {
+    background-color: rgba(212, 175, 55, 0.1);
+    /* Gold tint */
+    color: #8c7322;
+}
+
+.cell-name strong {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 400;
+}
+
+.cell-desc {
+    font-size: 0.85rem;
+    color: var(--color-gray);
+    line-height: 1.4;
+}
+
+.cell-price {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    width: 15%;
+}
+
+.cell-billing {
+    font-size: 0.8rem;
+    color: var(--color-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    width: 10%;
+}
+
+.cell-actions {
+    width: 15%;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--color-gray);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.action-btn.delete:hover {
+    border-color: #d9534f;
+    color: #d9534f;
+}
+
+.admin-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-family: inherit;
+    font-size: inherit;
+}
