@@ -30,7 +30,7 @@ const Hero = () => {
                     muted
                     playsInline
                 >
-                    <source src="https://videos.pexels.com/video-files/3571264/3571264-hd_1920_1080_30fps.mp4" type="video/mp4" />
+                    <source src="https://videos.pexels.com/video-files/4287975/4287975-hd_1920_1080_24fps.mp4" type="video/mp4" />
                 </video>
             </motion.div>
 
