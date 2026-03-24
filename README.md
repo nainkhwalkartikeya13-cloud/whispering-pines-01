@@ -40,6 +40,21 @@ A **full-stack luxury glamping booking platform** featuring cinematic design, re
   <br/><em>Curated outdoor experiences and adventure activities</em>
 </p>
 
+<p align="center">
+  <img src="screenshots/guest-portal.png" alt="Guest Portal" width="100%" />
+  <br/><em>Personalized guest portal for managing upcoming and past reservations</em>
+</p>
+
+<p align="center">
+  <img src="screenshots/stripe.png" alt="Stripe Checkout" width="100%" />
+  <br/><em>Seamless and secure payment processing powered by Stripe</em>
+</p>
+
+<p align="center">
+  <img src="screenshots/admin-dashboard.png" alt="Admin Dashboard" width="100%" />
+  <br/><em>Comprehensive management console for revenue, bookings, and operations</em>
+</p>
+
 ## 🏕️ Features
 
 ### Guest-Facing
