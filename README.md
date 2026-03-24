@@ -46,7 +46,7 @@ A **full-stack luxury glamping booking platform** featuring cinematic design, re
 </p>
 
 <p align="center">
-  <img src="screenshots/stripe.png" alt="Stripe Checkout" width="100%" />
+  <img src="screenshots/stripe-checkout.png" alt="Stripe Checkout" width="100%" />
   <br/><em>Seamless and secure payment processing powered by Stripe</em>
 </p>
 
@@ -109,7 +109,7 @@ A **full-stack luxury glamping booking platform** featuring cinematic design, re
 
 ```
 whispering-pines/
-├── columbiagorge/              # 🖥️ Frontend (React + Vite)
+├── whispering-pines/           # 🖥️ Frontend (React + Vite)
 │   ├── src/
 │   │   ├── components/         # Reusable UI components
 │   │   │   ├── Header.tsx      # Navigation with mega menu
@@ -155,11 +155,11 @@ whispering-pines/
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/nainkhwalkartikeya13-cloud/whispering-pines-01.git
-cd whispering-pines-01
+git clone https://github.com/KartikeyaNainkhwal/whispering-pines.git
+cd whispering-pines
 
 # Install frontend dependencies
-cd columbiagorge && npm install && cd ..
+cd whispering-pines && npm install && cd ..
 
 # Install backend dependencies
 cd server && npm install && cd ..
@@ -167,7 +167,7 @@ cd server && npm install && cd ..
 
 ### 2. Configure Environment
 
-**Frontend** (`columbiagorge/.env`):
+**Frontend** (`whispering-pines/.env`):
 ```env
 VITE_API_URL=http://localhost:3001/api
 VITE_STRIPE_PUBLISHABLE_KEY=pk_test_your_key_here
@@ -214,7 +214,7 @@ npm run db:seed
 cd server && npm run dev
 
 # Terminal 2 — Frontend
-cd columbiagorge && npm run dev
+cd whispering-pines && npm run dev
 ```
 
 Visit **http://localhost:5173** 🎉
@@ -223,7 +223,7 @@ Visit **http://localhost:5173** 🎉
 
 ### Frontend → Vercel
 1. Import the repo on [Vercel](https://vercel.com)
-2. Set **Root Directory** to `columbiagorge`
+2. Set **Root Directory** to `whispering-pines`
 3. Add environment variables: `VITE_API_URL`, `VITE_STRIPE_PUBLISHABLE_KEY`
 
 ### Backend → Railway
@@ -268,5 +268,5 @@ This project is for educational and portfolio purposes.
 ---
 
 <p align="center">
-  Made with 🌲 by <a href="https://github.com/nainkhwalkartikeya13-cloud">Kartikeya Nainkhwal</a>
+  Made with 🌲 by <a href="https://github.com/KartikeyaNainkhwal">Kartikeya Nainkhwal</a>
 </p>
