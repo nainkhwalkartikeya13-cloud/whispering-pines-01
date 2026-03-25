@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
@@ -48,6 +48,7 @@ const Booking = () => {
     dateRange: [Date | null, Date | null];
     guests: { adults: number; children: number };
     preSelectedRoom?: string;
+    preSelectedSlug?: string;
   } | null;
 
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
@@ -100,17 +101,7 @@ const Booking = () => {
       .catch(console.error);
   }, []);
 
-  // Auto-select room when navigating from accommodation detail page
-  useEffect(() => {
-    if (initialState?.preSelectedRoom && availableRooms.length > 0) {
-      const match = availableRooms.find((r) => r.id === initialState.preSelectedRoom);
-      if (match) {
-        setSelectedRoomId(match.id);
-      }
-    }
-  }, [availableRooms, initialState?.preSelectedRoom]);
-
-  const handleSearch = async () => {
+  const handleSearch = useCallback(async () => {
     if (!startDate || !endDate) {
       setSearchError('Please select check-in and check-out dates.');
       return;
@@ -130,7 +121,33 @@ const Booking = () => {
     } finally {
       setIsSearching(false);
     }
-  };
+  }, [startDate, endDate, guests]);
+
+  // Auto-search if dateRange was provided via location.state
+  const hasAutoSearched = useRef(false);
+  useEffect(() => {
+    if (!hasAutoSearched.current && initialState?.dateRange && startDate && endDate) {
+      hasAutoSearched.current = true;
+      handleSearch();
+    }
+  }, [handleSearch, initialState?.dateRange, startDate, endDate]);
+
+  // Auto-select room when navigating from accommodation detail page
+  useEffect(() => {
+    if (availableRooms.length > 0) {
+      let match = undefined;
+      if (initialState?.preSelectedRoom) {
+        match = availableRooms.find((r) => r.id === initialState.preSelectedRoom);
+      } else if (initialState?.preSelectedSlug) {
+        match = availableRooms.find((r) => r.slug === initialState.preSelectedSlug);
+      }
+
+      if (match) {
+        setSelectedRoomId(match.id);
+        setStep(3);
+      }
+    }
+  }, [availableRooms, initialState?.preSelectedRoom, initialState?.preSelectedSlug]);
 
   const toggleAddOn = (id: string) => {
     setSelectedAddOnIds((prev) =>
