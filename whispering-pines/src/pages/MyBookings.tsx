@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Calendar, MapPin, Users, Clock, Search, ArrowRight } from 'lucide-react';
@@ -58,6 +58,29 @@ const GuestPortal = () => {
   const [searched, setSearched] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [guestName, setGuestName] = useState('');
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('auto') === 'true') {
+      const savedEmail = localStorage.getItem('wp_guest_email');
+      const savedLastName = localStorage.getItem('wp_guest_last_name');
+      if (savedEmail && savedLastName) {
+        setEmail(savedEmail);
+        setLastName(savedLastName);
+        setLoading(true);
+        api.post<{ bookings: BookingResult[] }>('/bookings/lookup', { email: savedEmail, lastName: savedLastName })
+          .then(data => {
+            setBookings(data.bookings);
+            setSearched(true);
+            if (data.bookings.length > 0) {
+              setGuestName(data.bookings[0].guestFirstName);
+            }
+          })
+          .catch(err => setError((err as Error).message ?? 'Could not look up bookings.'))
+          .finally(() => setLoading(false));
+      }
+    }
+  }, []);
 
   const handleLookup = async (e: React.FormEvent) => {
     e.preventDefault();

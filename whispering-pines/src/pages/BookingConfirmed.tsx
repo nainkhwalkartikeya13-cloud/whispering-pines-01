@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export default function BookingConfirmed() {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [status, setStatus] = useState<'loading' | 'succeeded' | 'failed'>('loading');
 
   useEffect(() => {
@@ -13,6 +14,10 @@ export default function BookingConfirmed() {
     if (redirectStatus === 'succeeded' || sessionId) {
       // Stripe Checkout redirects with session_id on success
       setStatus('succeeded');
+      // Auto-redirect to guest portal after 3.5 seconds
+      setTimeout(() => {
+        navigate('/guest-portal?auto=true');
+      }, 3500);
     } else if (redirectStatus === 'failed') {
       setStatus('failed');
     } else {
@@ -66,8 +71,11 @@ export default function BookingConfirmed() {
             <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 300, color: 'var(--color-primary)', margin: '0 0 24px' }}>
               Your sanctuary awaits.
             </h1>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: 1.7, opacity: 0.7, marginBottom: '40px' }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: 1.7, opacity: 0.7, marginBottom: '20px' }}>
               A confirmation has been sent to your email with your booking details and check-in instructions. We look forward to welcoming you.
+            </p>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem', color: 'var(--color-secondary)', marginBottom: '40px', fontStyle: 'italic' }}>
+              Redirecting you to your Guest Portal...
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link to="/" className="btn btn-primary" style={{ display: 'inline-block' }}>

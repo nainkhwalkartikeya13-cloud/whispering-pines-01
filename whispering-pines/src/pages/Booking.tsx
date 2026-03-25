@@ -101,6 +101,11 @@ const Booking = () => {
       .catch(console.error);
   }, []);
 
+  // Scroll to top whenever the step changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [step]);
+
   const handleSearch = async () => {
     if (!startDate || !endDate) {
       setSearchError('Please select check-in and check-out dates.');
@@ -170,6 +175,10 @@ const Booking = () => {
       });
 
       setBreakdown(data.breakdown);
+
+      // Store details for auto-lookup in Guest Portal after payment success
+      localStorage.setItem('wp_guest_email', guestDetails.email);
+      localStorage.setItem('wp_guest_last_name', guestDetails.lastName);
 
       // Redirect to Stripe-hosted Checkout page
       if (data.url) {
