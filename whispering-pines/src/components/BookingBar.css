@@ -25,22 +25,24 @@
 }
 
 .price-label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: var(--color-gray);
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    display: block;
 }
 
 .price-value {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     color: var(--color-primary);
     line-height: 1;
 }
 
 .price-night {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: var(--color-gray);
+    display: inline;
 }
 
 @media (min-width: 1024px) {

@@ -70,13 +70,15 @@ const AccommodationDetail = () => {
           <ChevronLeft size={16} /> All Accommodations
         </Link>
         <div style={{
-          display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gridTemplateRows: '260px 260px',
-          gap: '0.5rem', borderRadius: 0,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 260px), 1fr))',
+          gridAutoRows: '220px',
+          gap: '0.5rem',
         }}>
           {allImages.slice(0, 5).map((src, i) => (
             <div key={i} style={{
               overflow: 'hidden', cursor: 'pointer',
-              ...(i === 0 ? { gridRow: '1 / 3' } : {}),
+              ...(i === 0 ? { gridColumn: '1 / -1', gridRow: '1 / 2' } : {}),
             }}
               onClick={() => { setLightboxIndex(i); setLightboxOpen(true); }}>
               <img src={src} alt={`${acc.name} ${i + 1}`}
@@ -94,7 +96,7 @@ const AccommodationDetail = () => {
         onPrev={() => setLightboxIndex((i) => (i - 1 + lightboxImgs.length) % lightboxImgs.length)} />
 
       {/* Detail Content */}
-      <section style={{ maxWidth: 1200, margin: '0 auto', padding: '2rem', display: 'grid', gridTemplateColumns: '1fr 380px', gap: '3rem', alignItems: 'start' }}>
+      <section style={{ maxWidth: 1200, margin: '0 auto', padding: '2rem clamp(1rem, 4vw, 2rem)', display: 'grid', gridTemplateColumns: 'minmax(0,1fr)', gap: '2.5rem', alignItems: 'start' }}>
         {/* Left: Description */}
         <div>
           <motion.div variants={FADE_UP} initial="hidden" animate="visible" custom={0}>
@@ -219,7 +221,7 @@ const AccommodationDetail = () => {
           }}>
             Other Stays You Might Love
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: '2rem' }}>
             {others.map((o) => (
               <Link key={o.id} to={`/accommodations/${o.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <div style={{ border: '1px solid rgba(44,66,51,0.1)', overflow: 'hidden' }}>

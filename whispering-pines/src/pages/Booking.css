@@ -93,9 +93,9 @@
 }
 
 .engine-title {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 6vw, 3.5rem);
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     font-family: var(--font-heading);
 }
 
@@ -213,9 +213,17 @@
 }
 
 .search-btn {
-    padding: 2rem 3rem;
-    font-size: 0.9rem;
+    padding: 1.5rem 2rem;
+    font-size: 0.85rem;
     flex-shrink: 0;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .search-btn {
+        padding: 2rem 3rem;
+        width: auto;
+    }
 }
 
 .pulsing {
@@ -314,9 +322,15 @@
 
 .room-info {
     flex: 1;
-    padding: 3rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .room-info {
+        padding: 2.5rem;
+    }
 }
 
 .room-info-header {
@@ -461,9 +475,16 @@
 .summary-card {
     background-color: var(--color-white);
     border: 1px solid var(--color-slate);
-    padding: 2.5rem;
+    padding: 2rem;
     position: sticky;
-    top: 180px;
+    top: 140px;
+}
+
+@media (min-width: 1024px) {
+    .summary-card {
+        padding: 2.5rem;
+        top: 180px;
+    }
 }
 
 .summary-card h3 {

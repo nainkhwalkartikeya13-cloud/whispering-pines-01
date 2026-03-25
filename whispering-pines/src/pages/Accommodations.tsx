@@ -137,7 +137,7 @@ const Accommodations = () => {
       </div>
 
       {/* ── Listings ─────────────────────────────────────── */}
-      <div style={{ background: '#F4F4F3', padding: '6rem 2rem' }}>
+      <div style={{ background: '#F4F4F3', padding: 'clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 2rem)' }}>
         <div className="container">
           {loading && (
             <div style={{ textAlign: 'center', padding: '6rem 0', opacity: 0.4, fontFamily: 'var(--font-body)', letterSpacing: '3px', fontSize: '11px', textTransform: 'uppercase' }}>
@@ -164,7 +164,7 @@ const Accommodations = () => {
               {/* Cards */}
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))',
                 gap: '2px',
               }}>
                 {items.map((acc, i) => (
@@ -197,7 +197,7 @@ const Accommodations = () => {
                         {TYPE_LABELS[acc.type]}
                       </div>
                     </div>
-                    <div style={{ padding: '28px' }}>
+                    <div style={{ padding: 'clamp(16px, 4vw, 28px)' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
                         <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', color: 'var(--color-primary)', textTransform: 'none', letterSpacing: '0.01em', lineHeight: 1.1 }}>
                           {acc.name}

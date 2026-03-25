@@ -1,0 +1,188 @@
+/* ================================================
+   SITE-WIDE MOBILE RESPONSIVENESS
+   Whispering Pines Retreats
+   All breakpoint overrides in one place
+   ================================================ */
+
+/* ─────────────────────────────────────────────────
+   ACCOMMODATION DETAIL — Pricing card below content
+   ───────────────────────────────────────────────── */
+@media (min-width: 900px) {
+    .accdetail-grid {
+        grid-template-columns: 1fr 340px !important;
+    }
+}
+
+/* ─────────────────────────────────────────────────
+   ABOUT — Timeline compact on mobile
+   ───────────────────────────────────────────────── */
+@media (max-width: 600px) {
+
+    /* Timeline left column narrower */
+    .about-timeline-year {
+        width: 50px !important;
+        padding-right: 20px !important;
+    }
+
+    /* Opening statement padding */
+    .about-opening {
+        padding: clamp(3rem, 8vw, 8rem) clamp(1rem, 5vw, 2rem) !important;
+    }
+
+    /* Values / Includes section padding */
+    .about-section {
+        padding: clamp(3rem, 8vw, 8rem) clamp(1rem, 5vw, 2rem) !important;
+    }
+}
+
+/* ─────────────────────────────────────────────────
+   EXPERIENCES, DINING, GALLERY, REVIEWS, BLOG
+   Auto-fit grids already responsive, but enforce
+   min wrapper padding on phones
+   ───────────────────────────────────────────────── */
+@media (max-width: 767px) {
+
+    /* All page containers */
+    .container {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+
+    /* Booking tracker label — hide on tiny screens */
+    .tracker-label {
+        font-size: 0.6rem !important;
+        letter-spacing: 0.05em !important;
+    }
+
+    /* Booking search bar fields compact */
+    .search-field {
+        padding: 1.25rem !important;
+    }
+
+    .search-input-wrapper {
+        font-size: 1.1rem !important;
+    }
+
+    /* Room card image height on phone */
+    .room-carousel {
+        min-height: 220px !important;
+    }
+
+    /* Amenity cards full-touch */
+    .amenity-card {
+        padding: 1.25rem !important;
+    }
+
+    /* Summary card not sticky on mobile (causes UX issues) */
+    .summary-card {
+        position: static !important;
+    }
+
+    /* Engine main padding */
+    .engine-main {
+        padding-top: 2rem !important;
+        padding-bottom: 4rem !important;
+    }
+
+    /* BookingBar mobile widget compact */
+    .booking-widget-mobile {
+        padding: 1rem 1.25rem !important;
+    }
+
+    /* Existing sections — tighter padding */
+    .section {
+        padding: 3rem 1.25rem !important;
+    }
+
+    /* Page hero content */
+    .page-hero__content {
+        padding: 0 1.25rem 2rem !important;
+    }
+
+    /* EarthMap section — stack vertically */
+    .earth-map-split {
+        flex-direction: column !important;
+    }
+
+    .map-info-side {
+        padding: 3rem 1.25rem !important;
+    }
+
+    .map-visual-side {
+        min-height: 300px !important;
+    }
+
+    /* Footer top row — stack on phones */
+    .footer-top {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    /* Footer bottom links wrap */
+    .legal-links {
+        flex-wrap: wrap !important;
+        gap: 0.75rem 1.5rem !important;
+        justify-content: center !important;
+    }
+
+    /* Newsletter form stacks on tiny screens */
+    .newsletter-form {
+        flex-direction: column !important;
+        gap: 0 !important;
+    }
+
+    .newsletter-form input {
+        border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border-bottom: none !important;
+    }
+
+    .newsletter-form button {
+        width: 100% !important;
+        border-left: 1px solid var(--color-secondary) !important;
+        padding: 0.75rem !important;
+    }
+
+    /* Misc inline-style grids inside pages — catch-all */
+    [style*="gridTemplateColumns: 'repeat(auto-fit, minmax(320px"],
+    [style*="gridTemplateColumns: 'repeat(auto-fill, minmax(320px"] {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ─────────────────────────────────────────────────
+   TABLET: 768px–1023px tweaks
+   ───────────────────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .engine-layout-sidebar {
+        gap: 2rem !important;
+    }
+
+    .map-info-side {
+        padding: 4rem 2rem !important;
+    }
+
+    .summary-card {
+        position: static !important;
+    }
+}
+
+/* ─────────────────────────────────────────────────
+   SAFE HORIZONTAL OVERFLOW GUARD
+   ───────────────────────────────────────────────── */
+* {
+    max-width: 100%;
+    word-break: break-word;
+}
+
+img,
+iframe,
+video {
+    max-width: 100%;
+}
+
+/* ─────────────────────────────────────────────────
+   SMOOTH SCROLLING
+   ───────────────────────────────────────────────── */
+html {
+    scroll-behavior: smooth;
+}
