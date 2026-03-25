@@ -28,14 +28,14 @@ const EarthMap = () => {
                                 <Phone size={24} strokeWidth={1.5} className="detail-icon" />
                                 <div>
                                     <h3>Telephone</h3>
-                                    <p>(555) 123-4567</p>
+                                    <p>(509) 427-0000</p>
                                 </div>
                             </div>
                             <div className="map-detail-item">
                                 <Mail size={24} strokeWidth={1.5} className="detail-icon" />
                                 <div>
                                     <h3>Email</h3>
-                                    <p>hello@columbiagorgegetaways.com</p>
+                                    <p>hello@whisperingpinesretreats.com</p>
                                 </div>
                             </div>
                         </div>

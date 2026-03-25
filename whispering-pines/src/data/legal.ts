@@ -22,7 +22,7 @@ export const termsOfService: string[] = [
   '### 10. Modifications',
   'Whispering Pines Retreats reserves the right to modify these terms at any time. Changes will be posted on this page with an updated "Last updated" date. Continued use of our services after changes constitutes acceptance of the modified terms.',
   '### 11. Contact',
-  'For questions about these terms, please contact us at info@columbiagorgegetaways.com or call (509) 427-0000.',
+  'For questions about these terms, please contact us at info@whisperingpinesretreats.com or call (509) 427-0000.',
 ];
 
 export const privacyPolicy: string[] = [
@@ -49,14 +49,14 @@ export const privacyPolicy: string[] = [
   '### 10. Changes to This Policy',
   'We may update this privacy policy from time to time. Changes will be posted on this page with an updated date. We encourage you to review this policy periodically.',
   '### 11. Contact',
-  'For privacy-related inquiries, please contact us at privacy@columbiagorgegetaways.com or write to: Whispering Pines Retreats, Stevenson, WA 98648.',
+  'For privacy-related inquiries, please contact us at privacy@whisperingpinesretreats.com or write to: Whispering Pines Retreats, Stevenson, WA 98648.',
 ];
 
 export const cancellationPolicy: string[] = [
   '## Cancellation & Refund Policy',
   'Last updated: March 1, 2026',
   '### Overview',
-  'We understand that plans change. Our cancellation policy is designed to be fair to both our guests and our small business. All cancellation requests must be submitted in writing via email to bookings@columbiagorgegetaways.com.',
+  'We understand that plans change. Our cancellation policy is designed to be fair to both our guests and our small business. All cancellation requests must be submitted in writing via email to bookings@whisperingpinesretreats.com.',
   '### Cancellation Timeline',
   '**14 or more days before check-in:** Full refund. We will process your refund within 5–7 business days to the original payment method.',
   '**7–13 days before check-in:** 50% refund. The remaining 50% is retained as a cancellation fee to cover the cost of holding your accommodation.',
@@ -75,5 +75,5 @@ export const cancellationPolicy: string[] = [
   '### Refund Processing',
   'All refunds are processed to the original payment method via Stripe. Please allow 5–7 business days for the refund to appear on your statement. If you have not received your refund within 10 business days, please contact us.',
   '### Contact',
-  'For cancellation requests or questions about this policy, email bookings@columbiagorgegetaways.com or call (509) 427-0000.',
+  'For cancellation requests or questions about this policy, email bookings@whisperingpinesretreats.com or call (509) 427-0000.',
 ];
