@@ -115,7 +115,7 @@ const Yurts = () => {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
-                    <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--color-secondary)' }}>${acc.pricePerNight.toLocaleString('en-US')}</span>
+                    <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--color-secondary)' }}>${(acc.pricePerNight / 100).toLocaleString('en-US')}</span>
                     <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'var(--color-gray)' }}> / night</span>
                   </div>
                   <Link to={`/accommodations/${acc.slug}`} className="btn btn-primary" style={{ fontSize: '0.8rem', padding: '0.6rem 1.2rem' }}>View Details</Link>

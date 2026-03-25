@@ -658,7 +658,7 @@ const Admin = () => {
                       {/* Actions */}
                       <div style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'space-between' }}>
                         <div style={{ textAlign: 'right' }}>
-                          <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--color-primary)', margin: 0 }}>${a.pricePerNight.toLocaleString('en-US')}</p>
+                          <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: 'var(--color-primary)', margin: 0 }}>${(a.pricePerNight / 100).toLocaleString('en-US')}</p>
                           <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.7rem', color: 'var(--color-gray)', margin: 0 }}>/ night</p>
                         </div>
                         <div style={{ display: 'flex', gap: '6px' }}>
@@ -775,7 +775,7 @@ const Admin = () => {
                             <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                               {b.enhancements.map((e, i) => (
                                 <span key={i} style={{ padding: '3px 10px', fontSize: '0.72rem', border: '1px solid rgba(44,66,51,0.15)', color: 'var(--color-secondary)' }}>
-                                  {e.service.name} — ${e.priceSnapshot}
+                                  {e.service.name} — ${(e.priceSnapshot / 100).toLocaleString('en-US')}
                                 </span>
                               ))}
                             </div>
@@ -842,7 +842,7 @@ const Admin = () => {
                         </td>
                         <td className="cell-price">
                           {editingServiceId === s.id ? <input type="number" style={{ ...inputStyle, width: 100 }} value={editServiceForm.price ?? 0} onChange={e => setEditServiceForm({ ...editServiceForm, price: Number(e.target.value) })} min={0} />
-                            : `$${s.price.toFixed(0)}`}
+                            : `$${(s.price / 100).toFixed(2)}`}
                         </td>
                         <td className="cell-billing">{s.priceType === 'per_night' ? '/ night' : 'one-time'}</td>
                         <td className="cell-actions">

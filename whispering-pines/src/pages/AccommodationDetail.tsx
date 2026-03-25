@@ -178,7 +178,7 @@ const AccommodationDetail = () => {
           }}>
           <div style={{ marginBottom: '1.5rem' }}>
             <span style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', color: 'var(--color-primary)' }}>
-              ${acc.pricePerNight.toLocaleString('en-US')}
+              ${(acc.pricePerNight / 100).toLocaleString('en-US')}
             </span>
             <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: 'var(--color-gray)' }}> / night</span>
           </div>
@@ -235,7 +235,7 @@ const AccommodationDetail = () => {
                     </span>
                     <h3 style={{ fontFamily: 'var(--font-heading)', fontWeight: 400, fontSize: '1.2rem', margin: '0.25rem 0 0.75rem' }}>{o.name}</h3>
                     <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: 'var(--color-secondary)' }}>
-                      ${o.pricePerNight.toLocaleString('en-US')}
+                      ${(o.pricePerNight / 100).toLocaleString('en-US')}
                     </span>
                     <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'var(--color-gray)' }}> / night</span>
                   </div>

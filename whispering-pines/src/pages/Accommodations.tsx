@@ -204,7 +204,7 @@ const Accommodations = () => {
                         </h3>
                         <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: '12px' }}>
                           <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', color: 'var(--color-secondary)' }}>
-                            ${acc.pricePerNight}
+                            ${(acc.pricePerNight / 100).toLocaleString('en-US')}
                           </div>
                           <div style={{ fontFamily: 'var(--font-body)', fontSize: '0.7rem', letterSpacing: '1px', opacity: 0.45 }}>
                             / night

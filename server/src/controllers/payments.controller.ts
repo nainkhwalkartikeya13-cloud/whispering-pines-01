@@ -64,6 +64,7 @@ export async function createCheckoutSession(
     }
 
     const nights = calculateNights(checkInDate, checkOutDate);
+    // All prices in DB are stored in cents (e.g. 12500 = $125.00)
     const roomSubtotal = accommodation.pricePerNight * nights;
 
     let enhancementsSubtotal = 0;
@@ -77,8 +78,8 @@ export async function createCheckoutSession(
       enhancementsSubtotal = services.reduce((sum, s) => sum + s.price, 0);
     }
 
-    const totalAmount = roomSubtotal + enhancementsSubtotal;
-    const totalAmountCents = Math.round(totalAmount * 100);
+    // Already in cents — no need to multiply by 100
+    const totalAmountCents = roomSubtotal + enhancementsSubtotal;
 
     // Create booking in DB with status 'pending'
     const booking = await prisma.booking.create({
@@ -107,6 +108,7 @@ export async function createCheckoutSession(
     });
 
     // Create line items for Stripe Checkout
+    // Stripe expects unit_amount in cents — our values are already in cents
     const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = [
       {
         price_data: {
@@ -115,7 +117,7 @@ export async function createCheckoutSession(
             name: `${accommodation.name} (${nights} Nights)`,
             description: `${checkInDate.toLocaleDateString()} to ${checkOutDate.toLocaleDateString()}`,
           },
-          unit_amount: Math.round(roomSubtotal * 100),
+          unit_amount: roomSubtotal,
         },
         quantity: 1,
       },
@@ -129,7 +131,7 @@ export async function createCheckoutSession(
             name: 'Selected Enhancements',
             description: services.map((s) => s.name).join(', '),
           },
-          unit_amount: Math.round(enhancementsSubtotal * 100),
+          unit_amount: enhancementsSubtotal,
         },
         quantity: 1,
       });
@@ -158,9 +160,9 @@ export async function createCheckoutSession(
     res.json({
       url: session.url,
       breakdown: {
-        roomSubtotal,
-        enhancementsSubtotal,
-        total: totalAmount,
+        roomSubtotal: roomSubtotal / 100,
+        enhancementsSubtotal: enhancementsSubtotal / 100,
+        total: totalAmountCents / 100,
         nights,
       },
     });

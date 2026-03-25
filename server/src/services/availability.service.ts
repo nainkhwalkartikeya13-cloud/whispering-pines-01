@@ -2,7 +2,7 @@ import { prisma } from '../db/prisma';
 
 export function calculateNights(checkIn: Date, checkOut: Date): number {
   const ms = checkOut.getTime() - checkIn.getTime();
-  return Math.max(1, Math.round(ms / (1000 * 60 * 60 * 24)));
+  return Math.max(1, Math.floor(ms / (1000 * 60 * 60 * 24)));
 }
 
 export async function checkAvailability(

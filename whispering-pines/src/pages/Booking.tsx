@@ -86,11 +86,11 @@ const Booking = () => {
     nights: number;
   } | null>(null);
 
-  // Derived totals (pre-order, for sidebar display)
-  const roomTotal = selectedRoom ? selectedRoom.pricePerNight * nights : 0;
+  // Derived totals (pre-order, for sidebar display) — convert cents → dollars
+  const roomTotal = selectedRoom ? (selectedRoom.pricePerNight / 100) * nights : 0;
   const addOnsTotal = selectedAddOnIds.reduce((sum, id) => {
     const a = addOns.find((x) => x.id === id);
-    return sum + (a ? a.price : 0);
+    return sum + (a ? a.price / 100 : 0);
   }, 0);
   const grandTotal = roomTotal + addOnsTotal;
 
@@ -289,7 +289,7 @@ const Booking = () => {
                         <div className="room-footer">
                           <div className="room-pricing">
                             <span className="price-label">Starting From</span>
-                            <span className="price-amount">${room.pricePerNight.toLocaleString('en-US')}</span>
+                            <span className="price-amount">${(room.pricePerNight / 100).toLocaleString('en-US')}</span>
                             <span className="price-night">/ night</span>
                           </div>
                           <div className="room-actions">
@@ -322,7 +322,7 @@ const Booking = () => {
                         <div className="amenity-icon"><Icon size={24} strokeWidth={1} /></div>
                         <div className="amenity-details">
                           <h3>{addon.name}</h3>
-                          <span>+${addon.price.toLocaleString('en-US')}</span>
+                          <span>+${(addon.price / 100).toLocaleString('en-US')}</span>
                         </div>
                         <div className="amenity-check">{isSelected && <Check size={18} />}</div>
                       </div>
@@ -349,7 +349,7 @@ const Booking = () => {
                         return (
                           <div className="summary-line" key={id}>
                             <span>{a?.name}</span>
-                            <span>${a?.price.toLocaleString('en-US')}</span>
+                            <span>${(a ? a.price / 100 : 0).toLocaleString('en-US')}</span>
                           </div>
                         );
                       })}
