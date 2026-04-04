@@ -246,9 +246,10 @@
     }
 }
 
-.guest-dropdown {
+.engine-search-bar .guest-dropdown {
     position: absolute;
     top: 100%;
+    bottom: auto;
     left: 0;
     width: 100%;
     background: var(--color-white);

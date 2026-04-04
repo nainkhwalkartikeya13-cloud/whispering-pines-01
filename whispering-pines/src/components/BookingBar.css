@@ -218,9 +218,10 @@
     position: relative;
 }
 
-.guest-dropdown {
+.booking-bar .guest-dropdown {
     position: absolute;
     bottom: 100%;
+    top: auto;
     margin-bottom: 1rem;
     left: 0;
     width: 250px;
